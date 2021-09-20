@@ -16,6 +16,8 @@ public class PopUp : MonoBehaviour
 
     public GameObject itemPrefab;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +28,21 @@ public class PopUp : MonoBehaviour
     {
         GameObject item = Instantiate(itemPrefab, new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity);
         items.Add(item);
+
     }
 
+    public void RemoveItem()
+    {
+        if (onScreenTime >= 5f)
+        {
+            Destroy(items[0]);
 
+            items.Remove(items[0]);
+            onScreenTime = 0f;
+            print("removed");
+            print("destroyed");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,13 +57,11 @@ public class PopUp : MonoBehaviour
                 SpawnItem();
                 timer = 0f;
 
+                RemoveItem();
             }
 
-        }
-        if (onScreenTime > 5f)
-        {
-            Destroy(items[0]);
-            onScreenTime = 0f;
+
+
         }
 
     }
