@@ -42,23 +42,23 @@ public class PopUp : MonoBehaviour
 
     public void SpawnItem()
     {
-
         GameObject item = Instantiate(itemPrefab, new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity);
         items.Add(item);
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 1f)
+        if (items.Count < 10)
         {
-            SpawnItem();
-            timer = 0f;
-        }
+            if (timer >= 1f)
+            {
+                SpawnItem();
+                timer = 0f;
+            }
 
+        }
 
     }
 
