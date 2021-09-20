@@ -10,11 +10,12 @@ public class ItemBehavior : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
+
     }
 
     void OnMouseDown()
     {
-        print("click");
+        Destroy(gameObject);
     }
 
 
