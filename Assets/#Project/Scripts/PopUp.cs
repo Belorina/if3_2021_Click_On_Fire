@@ -7,8 +7,6 @@ public class PopUp : MonoBehaviour
 {
     public float timer = 0f;
 
-    public float onScreenTime = 0f;
-
     private Vector3 position;
 
     public List<GameObject> items;
@@ -16,11 +14,12 @@ public class PopUp : MonoBehaviour
 
     public GameObject itemPrefab;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        // StartCoroutine("Spawn");
 
     }
 
@@ -31,16 +30,18 @@ public class PopUp : MonoBehaviour
 
     }
 
+    // IEnumerator RemoveItem()
+    // {
+    //     yield return new WaitForSeconds(5f);
+    //     Destroy(items[0]);
+    //     items.Remove(items[0]);
+    // }
     public void RemoveItem()
     {
-        if (onScreenTime >= 5f)
+        if (items.Count > 0)
         {
             Destroy(items[0]);
-
             items.Remove(items[0]);
-            onScreenTime = 0f;
-            print("removed");
-            print("destroyed");
         }
     }
 
@@ -48,7 +49,6 @@ public class PopUp : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        onScreenTime += Time.deltaTime;
 
         if (items.Count < 10)
         {
@@ -57,13 +57,7 @@ public class PopUp : MonoBehaviour
                 SpawnItem();
                 timer = 0f;
 
-                RemoveItem();
             }
-
-
-
         }
-
     }
-
 }
