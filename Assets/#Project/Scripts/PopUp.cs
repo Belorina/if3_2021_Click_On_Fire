@@ -50,6 +50,7 @@ public class PopUp : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+
         if (items.Count < 10)
         {
             if (timer >= 1f)

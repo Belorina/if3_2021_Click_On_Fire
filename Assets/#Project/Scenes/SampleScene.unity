@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 626205523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.22, y: 2.22, z: 2.22}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -388,13 +388,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.501482, y: 0.00051708554, z: -0.0002991978, w: -0.8651679}
+  m_LocalPosition: {x: 0.023114935, y: 13.426519, z: -11.229222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.432, y: 28.87, z: 0}
 --- !u!1 &1132281059
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 1132281060}
   - component: {fileID: 1132281061}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,4 +439,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+  items: []
   itemPrefab: {fileID: 5213489863891551260, guid: 154ad451bbbee9d44bfd150349795716, type: 3}
