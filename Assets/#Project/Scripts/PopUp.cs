@@ -7,6 +7,8 @@ public class PopUp : MonoBehaviour
 {
     public float timer = 0f;
 
+    public float onScreenTime = 0f;
+
     private Vector3 position;
 
     public List<GameObject> items;
@@ -20,36 +22,19 @@ public class PopUp : MonoBehaviour
 
     }
 
-    // public void Fill()
-    // {
-    //     // instanciatedObjects = new List<GameObject>();
-    //     // for (int i = 0; i < 10; i ++)
-    //     // {
-    //     //     instanciatedObjects.Add(Instantiate(items[i]) as GameObject);
-    //     // }
-
-    //     for (int i = 0; i < 10; i++)
-    //     {
-    //         GameObject itemPop = Instantiate(itemPrefab, position, Quaternion.identity);
-    //         position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
-    //         items.Add(itemPop);
-
-    //         Destroy(itemPop);
-    //         //print(items);
-    //     }
-
-    // }
-
     public void SpawnItem()
     {
         GameObject item = Instantiate(itemPrefab, new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity);
         items.Add(item);
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
+        onScreenTime += Time.deltaTime;
 
         if (items.Count < 10)
         {
@@ -57,8 +42,14 @@ public class PopUp : MonoBehaviour
             {
                 SpawnItem();
                 timer = 0f;
+
             }
 
+        }
+        if (onScreenTime > 5f)
+        {
+            Destroy(items[0]);
+            onScreenTime = 0f;
         }
 
     }
