@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - TheCube
   - BlueCube
+  - item
   layers:
   - Default
   - TransparentFX
