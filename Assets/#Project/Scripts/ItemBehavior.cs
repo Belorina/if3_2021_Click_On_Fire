@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBehavior : MonoBehaviour
+public class ItemBehavior : PopUp
 {
     public Renderer rend;
 
@@ -22,6 +22,14 @@ public class ItemBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        endTimer += Time.deltaTime;
+
+        if (endTimer >= 5f)
+        {
+            RemoveItem(endTimer);
+        }
+
 
     }
 }

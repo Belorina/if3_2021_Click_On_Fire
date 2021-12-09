@@ -6,17 +6,16 @@ using UnityEngine.Events;
 public class PopUp : MonoBehaviour
 {
     public float timer = 0f;
+    public float endTimer = 0f;
 
-    public float onScreenTime = 0f;
-
-    private Vector3 position;
+    public Vector3 position;
 
     public List<GameObject> items;
     //public List<GameObject> instanciatedObjects;
 
     public GameObject itemPrefab;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,29 +25,36 @@ public class PopUp : MonoBehaviour
 
     public void SpawnItem()
     {
-        GameObject item = Instantiate(itemPrefab, new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity);
-        items.Add(item);
+
+        for (int i = 0; i < 100; i++)
+        {
+            position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
+            GameObject item = Instantiate(itemPrefab, position, Quaternion.identity);
+            items.Add(item);
+
+        }
 
     }
 
-    public void RemoveItem()
+    public void RemoveItem(float endTimer)
     {
-        if (onScreenTime >= 5f)
+        if (endTimer > 5f)
         {
             Destroy(items[0]);
-
             items.Remove(items[0]);
-            onScreenTime = 0f;
+
             print("removed");
             print("destroyed");
+            endTimer = 0f;
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        onScreenTime += Time.deltaTime;
+
 
         if (items.Count < 10)
         {
@@ -57,10 +63,7 @@ public class PopUp : MonoBehaviour
                 SpawnItem();
                 timer = 0f;
 
-                RemoveItem();
             }
-
-
 
         }
 
